@@ -34,4 +34,13 @@ if (condition1) {
   console.log('hi world')
 }
 
-myNewFunction(2,4)
+
+
+let i = 0
+let length = exampleArray
+  console.log(length)
+// while(){
+
+// }
+
+// myNewFunction(2,4)
