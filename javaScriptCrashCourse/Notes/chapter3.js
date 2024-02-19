@@ -20,11 +20,23 @@ let simpleArray = ["chris", "is", "cool"]
 
 //crud - create read update delete
 
-console.log(simpleArray)
+// console.log(simpleArray)
 
 // pop push shift unshift
 
 simpleArray.push('new word')
 
 
-console.log(simpleArray)
+// console.log(simpleArray)
+
+// dictionaries and objects
+
+const bio = {
+    name:'Chris',
+    age: 22,
+    hobbiesOrInterest: ['gym', 'coding', 'music']
+}
+
+let name = bio['name']
+
+console.log(name)
