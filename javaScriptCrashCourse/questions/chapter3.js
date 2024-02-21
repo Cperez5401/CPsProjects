@@ -103,3 +103,106 @@ let friend = {
     }
     
 }
+
+function deepClone(obj){
+    let newObj = {}
+    let objectKeys = Object.keys(obj)
+    for(let i = 0; i < objectKeys.length; i++){
+        let currentKey = objectKeys[i]
+        newObj = obj[currentKey]
+    }
+    return newObj
+}
+let newFriends = deepClone(friend)
+
+console.log(newFriends)
+
+//8. 
+let student = {
+    chem:{
+        grade:9
+    },
+    math:{
+        grade:8
+    },
+    history:{
+        grade:100
+    }
+}
+
+function findAvgGrade(obj) {
+    let sum = 0 
+    let numberOfSub = 0
+
+    let listOfSub = Object.keys(obj)
+
+    for(let i = 0; i < listOfSub.length; i++){
+        let currentKey = listOfSub[i]
+        let subjectGrade = student[currentKey].grade
+
+        sum = sum + subjectGrade
+        numberOfSub ++
+    }
+
+    let avgGrade = sum / numberOfSub
+    return avgGrade
+
+}
+
+console.log(findAvgGrade(student))
+
+//9.
+function inception() {
+    let numOfInvocations = 0
+
+    return function name() {
+        numOfInvocations ++
+        console.log(numOfInvocations)
+    }
+}
+
+const incrementer = inception()
+
+incrementer()
+incrementer()
+incrementer()
+incrementer()
+incrementer()
+incrementer()
+
+
+//10.
+let gradesArr = [
+    {subject: 'Math', grade:10},
+    {subject: 'spanish', grade:8},
+    {subject: 'science', grade:4},
+]
+
+function sortByGrade(arr){
+    let sortedArr = arr.sort(function (a, b) {
+        return b.grade - a.grade
+    })
+
+    return sortedArr
+}
+
+console.log(sortByGrade(gradesArr))
+
+//11.
+
+let arrayOfStrings = ['what', 'the', 'what', 'chris perez', 'Victra verizon']
+
+function shortenWords(arr) {
+    let arrayOfLongStrings = []
+    for (let i = 0; i < arr.length; i++) {
+        let currentKey = arr[i]
+        if (currentKey.length > 5) {
+            arrayOfLongStrings.push(currentKey)
+        }
+    }
+    return arrayOfLongStrings
+}
+console.log(shortenWords(arrayOfStrings))
+
+
+//12. 
