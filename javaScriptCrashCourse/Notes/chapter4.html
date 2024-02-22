@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM Manipulation Practice</title>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <h1 id="main-title">DOM Manipulation</h1>
 
-    <form id="form-example">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age"><br><br>
-        <input type="submit" value="Submit">
+    <form id="form-example" onsubmit="return handleSubmitForm(event)">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" /><br /><br />
+      <input type="submit" value="Submit" />
     </form>
 
     <button id="open-modal-btn">Open Modal</button>
@@ -26,18 +23,39 @@
 
     <textarea id="text-area" rows="4" cols="50">Type some text...</textarea>
 
-    <div id="modal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
-            <button id="close-modal-btn">Close Modal</button>
-        </div>
+    <div id="modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+        <button id="close-modal-btn">Close Modal</button>
+      </div>
     </div>
     <script>
-        console.log(document)
+      let modalBtn = document.getElementById("open-modal-btn");
+      let closeModalBtn = document.getElementById("close-modal-btn");
+      let modal = document.getElementById("modal");
+      let xBtn = document.querySelector(".close");
+      let txtArea = document.getElementById("text-area");
 
+      function handleOpenModal() {
+        modal.style.display = "flex"
+
+        console.log(txtArea.value)
+      }
+
+      modalBtn.addEventListener("click", handleOpenModal)
+
+      function handelCloseModal() {
+        modal.style.display = "none"
+      }
+
+      closeModalBtn.addEventListener("click", handelCloseModal)
+      xBtn.addEventListener("click", handelCloseModal)
+
+      function handleSubmitForm(event) {
+        event.preventDefault()
+        console.log('attempted to submit the form')
+      }
     </script>
-</body>
-
-
+  </body>
 </html>
